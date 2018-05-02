@@ -14,10 +14,13 @@ import com.amazonaws.mobile.auth.ui.SignInUI;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.AWSStartupHandler;
 import com.amazonaws.mobile.client.AWSStartupResult;
+import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private Button button1;
+
+    public static PinpointManager pinpointManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

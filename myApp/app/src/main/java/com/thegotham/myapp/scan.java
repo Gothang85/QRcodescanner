@@ -18,12 +18,20 @@ import com.google.zxing.integration.android.IntentResult;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
 public class scan extends AppCompatActivity {
     private Button scanbtn;
+    private Button walkButton1;
     DynamoDBMapper dynamoDBMapper;
     GarageScheduleDO uitem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+        walkButton1 =(Button)findViewById(R.id.walkbutton);
+        walkButton1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openAcitivity3();
+            }
+        });
         //AWSMobileClient.getInstance().initialize(getApplicationContext()).execute();
         //set up db communication
         //AWSMobileClient.getInstance().initialize(this,).execute();
@@ -47,6 +55,10 @@ public class scan extends AppCompatActivity {
                 integrator.initiateScan();
             }
         });
+    }
+    public void openAcitivity3() {
+        Intent intent1 = new Intent(this, com.thegotham.myapp.walkIn.class);
+        startActivity(intent1);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
